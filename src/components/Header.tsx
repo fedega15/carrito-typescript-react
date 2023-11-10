@@ -1,5 +1,4 @@
 import Nav from "./Nav"
-import useCart from "../hooks/useCart"
 import { SiAffinityphoto } from "react-icons/si"
 
 type PropsType = {
@@ -8,7 +7,6 @@ type PropsType = {
 }
 
 const Header = ({ viewCart, setViewCart }: PropsType) => {
-    const { totalItems, totalPrice } = useCart()
 
     const content = (
         <header className="header">

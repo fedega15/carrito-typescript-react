@@ -1,6 +1,6 @@
 import { ProductType } from "../context/ProductsProvider"
 import { ReducerActionType, ReducerAction } from "../context/CartProvider"
-import { ReactElement, memo } from "react"
+import { ReactElement, memo, useState } from "react"
 import { MdAddShoppingCart } from "react-icons/md"
 
 type PropsType = {
@@ -10,25 +10,37 @@ type PropsType = {
     inCart: boolean,
 }
 
+
 const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): ReactElement => {
-    const img: string = new URL(`../images/${product.sku}.jpg`, import.meta.url).href
-    console.log(img)
+    const img: string = new URL(`../images/${product.sku}.jpg`, import.meta.url).href;
+    console.log(img);
 
-    const onAddToCart = () => dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } })
+    const [addedCount, setAddedCount] = useState(0);
 
-    const itemInCart = inCart ? ` → Articulo agregado` : null
+    const onAddToCart = () => {
+        const qty = addedCount + 1;
+        setAddedCount(qty);
+        dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: qty } });
+    };
 
-    const content =
+    const itemInCart = inCart ? ` → Producto Agregado${addedCount > 0 ? ` (${addedCount})` : ''}` : null;
+
+    const content = (
         <article className="product">
-            
             <img src={img} alt={product.name} className="product__img" />
             <h3 className="product__title">{product.name}</h3>
-            <p className="product__title">{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(product.price)}{itemInCart}</p>
-            <button className="product__button"  onClick={onAddToCart}><MdAddShoppingCart className="icon" />Add to cart </button>
+            <p className="product__title">
+                {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(product.price)}
+                {itemInCart}
+            </p>
+            <button className="product__button" onClick={onAddToCart}>
+                <MdAddShoppingCart className="icon" /> Add to cart
+            </button>
         </article>
+    );
 
-    return content
-}
+    return content;
+};
 
 function areProductsEqual({ product: prevProduct, inCart: prevInCart }: PropsType, { product: nextProduct, inCart: nextInCart }: PropsType) {
     return (
