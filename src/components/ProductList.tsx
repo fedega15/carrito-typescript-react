@@ -21,9 +21,6 @@ const ProductList = () => {
                 <Product
                     key={product.sku}
                     product={product}
-                    dispatch={dispatch}
-                    REDUCER_ACTIONS={REDUCER_ACTIONS}
-                    inCart={inCart}
                 />
                 </>
                 )
