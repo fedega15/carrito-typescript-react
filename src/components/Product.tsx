@@ -1,6 +1,6 @@
 import { ProductType } from "../context/ProductsProvider"
 import { ReducerActionType, ReducerAction } from "../context/CartProvider"
-import { ReactElement, memo, useState } from "react"
+import { ReactElement, memo, useEffect, useState } from "react"
 import { MdAddShoppingCart } from "react-icons/md";
 
 type PropsType = {
@@ -9,6 +9,7 @@ type PropsType = {
     REDUCER_ACTIONS: ReducerActionType;
     inCart: boolean;
 };
+
 
 const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): ReactElement => {
     const img: string = new URL(`../images/${product.sku}.jpg`, import.meta.url).href;
@@ -19,7 +20,13 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): Rea
         setCount(count + 1);
     };
 
-    const itemInCart = inCart ? ` → Productos agregados ${count}` : null;
+    const itemInCart = inCart ? ` → Item in Cart: ✔️ ${count}` : null;
+
+    useEffect(() => {
+        if (inCart) {
+            setCount(count + 0);
+        }
+    }, [inCart]);
 
     return (
         <article className="product">
