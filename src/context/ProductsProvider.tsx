@@ -5,22 +5,32 @@ export type ProductType = {
     name: string,
     price: number,
 }
-const initState: ProductType[] = [ ] 
- 
-export type UseProductsContextType = { products: ProductType[] }
+const initState: ProductType[] = [];
 
-const initContextState: UseProductsContextType = { products: [] }
+export type UseProductsContextType = { products: ProductType[] };
 
-const ProductsContext = createContext<UseProductsContextType>(initContextState)
+const initContextState: UseProductsContextType = { products: [] };
 
-type ChildrenType = { children?: ReactElement | ReactElement[] }
+const storedProducts = JSON.parse(localStorage.getItem('products') || '[]');
+const initialProducts = storedProducts.length ? storedProducts : data.products;
+
+const ProductsContext = createContext<UseProductsContextType>(initContextState);
+
+type ChildrenType = { children?: ReactElement | ReactElement[] };
 
 export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
-    const [products, setProducts] = useState<ProductType[]>(initState);
+    const [products, setProducts] = useState<ProductType[]>(initialProducts);
 
     useEffect(() => {
-        setProducts(data.products);
-    }, []);
+        localStorage.setItem('products', JSON.stringify(products));
+    }, [products]);
+
+    return (
+        <ProductsContext.Provider value={{ products }}>
+            {children}
+        </ProductsContext.Provider>
+    )
+}
 /* 
 export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
     const [products, setProducts] = useState<ProductType[]>(initState)
@@ -38,12 +48,6 @@ export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
         fetchProducts().then(products => setProducts(products))
  }, []) 
  */
-    return (
-        <ProductsContext.Provider value={{ products }}>
-            {children}
-        </ProductsContext.Provider>
-    )
-
-}
+   
 
 export default ProductsContext 
