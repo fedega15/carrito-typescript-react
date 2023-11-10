@@ -8,6 +8,7 @@ import banner4 from "../images/banner4.jpg";
 const Banner: React.FC = () => {
   return (
     <div className="banner">
+      <br/>
       <img src={banner}alt="Imagen Principal" className="banner__main-image" />
       <div className="banner__gallery">
         <img src={banner3} alt="Imagen 1" className="banner__small-image" />

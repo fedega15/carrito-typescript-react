@@ -1,8 +1,6 @@
 import { ProductType } from "../context/ProductsProvider"
 import { ReducerActionType, ReducerAction } from "../context/CartProvider"
 import { ReactElement, memo } from "react"
-import { PiShoppingCartSimpleBold  } from "react-icons/pi"
-import useCart from "../hooks/useCart"
 import { MdAddShoppingCart } from "react-icons/md"
 
 type PropsType = {
@@ -13,13 +11,12 @@ type PropsType = {
 }
 
 const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): ReactElement => {
-    const {  totalItems } = useCart()
     const img: string = new URL(`../images/${product.sku}.jpg`, import.meta.url).href
     console.log(img)
 
     const onAddToCart = () => dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } })
 
-    const itemInCart = inCart ? ` → Carrito TOTAL:  ${totalItems}` : null
+    const itemInCart = inCart ? ` → Articulo agregado` : null
 
     const content =
         <article className="product">
