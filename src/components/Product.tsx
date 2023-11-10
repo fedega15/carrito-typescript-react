@@ -26,7 +26,7 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): Rea
         if (count) {
             setCount(count + 0);
         }
-    }, [count]);
+    }, [onAddToCart]);
 
     return (
         <article className="product">
