@@ -4,7 +4,6 @@ import { FaFacebook, FaTwitter, FaInstagram , FaLinkedin} from 'react-icons/fa';
 type PropsType = {
     viewCart: boolean;
 };
-
 const Footer = ({ viewCart }: PropsType) => {
     const { totalItems, totalPrice } = useCart();
     const year: number = new Date().getFullYear();
@@ -17,7 +16,7 @@ const Footer = ({ viewCart }: PropsType) => {
                 <a href="https://instagram.com"><FaInstagram /></a>
                 <a href="https://instagram.com"><FaLinkedin /></a>
             </div>
-            <h3>BenRaw.co &copy; {year}</h3>
+            <h3>BenRaw.co SA &copy; {year}</h3>
             <p>Moreno 180, Rosario</p>
             <p>Envíos por OCA GRATIS, a coordinar con el proveedor a la hora de finalizar la compra!</p>
         </div>
