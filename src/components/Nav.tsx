@@ -1,3 +1,6 @@
+import { PiShoppingCartSimpleBold } from "react-icons/pi"
+import { IoMdArrowRoundBack } from "react-icons/io"
+
 type PropsType = {
     viewCart: boolean,
     setViewCart: React.Dispatch<React.SetStateAction<boolean>>,
@@ -6,8 +9,8 @@ type PropsType = {
 const Nav = ({ viewCart, setViewCart }: PropsType) => {
 
     const button = viewCart
-        ? <button onClick={() => setViewCart(false)}>View Products</button>
-        : <button onClick={() => setViewCart(true)}>View Cart</button>
+        ? <button className="product__button" onClick={() => setViewCart(false)}><IoMdArrowRoundBack className="icon" /></button>
+        : <button className="product__button" onClick={() => setViewCart(true)}><PiShoppingCartSimpleBold className="icon" /></button>
 
     const content = (
         <nav className="nav">

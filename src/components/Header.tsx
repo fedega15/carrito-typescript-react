@@ -1,5 +1,6 @@
 import Nav from "./Nav"
 import useCart from "../hooks/useCart"
+import { SiAffinityphoto } from "react-icons/si"
 
 type PropsType = {
     viewCart: boolean,
@@ -12,10 +13,10 @@ const Header = ({ viewCart, setViewCart }: PropsType) => {
     const content = (
         <header className="header">
             <div className="header__title-bar">
-                <h1>Acme Co.</h1>
+                <h1><SiAffinityphoto/> BenRaw</h1>
                 <div className="header__price-box">
-                    <p>Total Items: {totalItems}</p>
-                    <p>Total Price: {totalPrice}</p>
+                    <p>Productos: {totalItems}</p>
+                    <p>Precio TOTAL: {totalPrice}</p>
                 </div>
             </div>
             <Nav viewCart={viewCart} setViewCart={setViewCart} />

@@ -22,14 +22,17 @@ const ProductList = () => {
                     REDUCER_ACTIONS={REDUCER_ACTIONS}
                     inCart={inCart}
                 />
-            )
+                )
         })
     }
 
     const content = (
+        <>
+            <h1 className="producto">productos</h1>
         <main className="main main--products">
             {pageContent}
         </main>
+        </>
     )
 
     return content

@@ -1,17 +1,32 @@
 {
     "products": [
         {
-            "sku": "item0001",
+            "sku": "page",
             "name": "Widget",
             "price": 9.99
         },
         {
-            "sku": "item0002",
-            "name": "Premium Widget",
+            "sku": "page5",
+            "name": "page4",
             "price": 19.99
         },
         {
-            "sku": "item0003",
+            "sku": "page3",
+            "name": "Deluxe Widget3",
+            "price": 29.99
+        },
+        {
+            "sku": "page2",
+            "name": "Deluxe Widget1",
+            "price": 29.99
+        },
+        {
+            "sku": "page",
+            "name": "Deluxe Widget1",
+            "price": 29.99
+        },
+        {
+            "sku": "page2",
             "name": "Deluxe Widget",
             "price": 29.99
         }
