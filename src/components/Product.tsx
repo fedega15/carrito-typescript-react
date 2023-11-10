@@ -23,10 +23,10 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): Rea
     const itemInCart = inCart ? ` → Item in Cart: ✔️ ${count}` : null;
 
     useEffect(() => {
-        if (inCart) {
+        if (count) {
             setCount(count + 0);
         }
-    }, [inCart]);
+    }, [count]);
 
     return (
         <article className="product">
