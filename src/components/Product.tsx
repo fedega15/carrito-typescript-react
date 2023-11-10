@@ -1,24 +1,27 @@
-import { ProductType } from "../context/ProductsProvider";
-import { ReactElement, memo, useState } from "react";
+import { ProductType } from "../context/ProductsProvider"
+import { ReducerActionType, ReducerAction } from "../context/CartProvider"
+import { ReactElement, memo, useState } from "react"
 import { MdAddShoppingCart } from "react-icons/md";
 
 type PropsType = {
     product: ProductType;
+    dispatch: React.Dispatch<ReducerAction>;
+    REDUCER_ACTIONS: ReducerActionType;
+    inCart: boolean;
 };
 
-const Product = ({ product }: PropsType): ReactElement => {
+const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): ReactElement => {
     const img: string = new URL(`../images/${product.sku}.jpg`, import.meta.url).href;
-
-    const [addedCount, setAddedCount] = useState(0);
+    const [count, setCount] = useState(0);
 
     const onAddToCart = () => {
-        const qty = addedCount + 1;
-        setAddedCount(qty);
+        dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } });
+        setCount(count + 1);
     };
 
-    const itemInCart = addedCount > 0 ? ` → Producto Agregado (${addedCount})` : null;
+    const itemInCart = inCart ? ` → Productos agregados ${count}` : null;
 
-    const content = (
+    return (
         <article className="product">
             <img src={img} alt={product.name} className="product__img" />
             <h3 className="product__title">{product.name}</h3>
@@ -29,16 +32,9 @@ const Product = ({ product }: PropsType): ReactElement => {
             <button className="product__button" onClick={onAddToCart}>
                 <MdAddShoppingCart className="icon" /> Add to cart
             </button>
+            <div onClick={() => setCount(count + 1)}></div>
         </article>
     );
-
-    return content;
 };
 
-function areProductsEqual(prevProps: PropsType, nextProps: PropsType) {
-    return prevProps.product.sku === nextProps.product.sku;
-}
-
-const MemoizedProduct = memo(Product, areProductsEqual);
-
-export default MemoizedProduct;
+export default Product;
