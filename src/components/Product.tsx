@@ -16,7 +16,7 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): Rea
     const [count, setCount] = useState(0);
 
     const onAddToCart = () => {
-        dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } });
+        dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: count } });
         setCount(count + 1);
     };
 
