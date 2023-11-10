@@ -13,20 +13,13 @@ type PropsType = {
 
 const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): ReactElement => {
     const img: string = new URL(`../images/${product.sku}.jpg`, import.meta.url).href;
-    const [count, setCount] = useState(0);
 
     const onAddToCart = () => {
-        dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: count } });
-        setCount(count + 1);
+        dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } });
+        ;
     };
 
-    const itemInCart = inCart ? ` → Item in Cart: ✔️ ${count}` : null;
-
-    useEffect(() => {
-        if (count) {
-            setCount(count + 0);
-        }
-    }, [onAddToCart]);
+    const itemInCart = inCart ? ` → Producto agregado` : null;
 
     return (
         <article className="product">
@@ -39,7 +32,7 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): Rea
             <button className="product__button" onClick={onAddToCart}>
                 <MdAddShoppingCart className="icon" /> Add to cart
             </button>
-            <div onClick={() => setCount(count + 1)}></div>
+            
         </article>
     );
 };
