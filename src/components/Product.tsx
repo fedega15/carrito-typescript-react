@@ -3,7 +3,7 @@ import { ReducerActionType, ReducerAction } from "../context/CartProvider"
 import { ReactElement, memo } from "react"
 import { PiShoppingCartSimpleBold  } from "react-icons/pi"
 import useCart from "../hooks/useCart"
-import CartLineItem from "./CartLineItem"
+import { MdAddShoppingCart } from "react-icons/md"
 
 type PropsType = {
     product: ProductType,
@@ -27,7 +27,7 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): Rea
             <img src={img} alt={product.name} className="product__img" />
             <h3 className="product__title">{product.name}</h3>
             <p className="product__title">{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(product.price)}{itemInCart}</p>
-            <button className="product__button"  onClick={onAddToCart}> <PiShoppingCartSimpleBold className="icon" /></button>
+            <button className="product__button"  onClick={onAddToCart}><MdAddShoppingCart className="icon" />Add to cart </button>
         </article>
 
     return content

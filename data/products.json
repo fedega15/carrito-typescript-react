@@ -1,32 +1,32 @@
 {
     "products": [
         {
-            "sku": "page",
-            "name": "Widget",
+            "sku": "banner1",
+            "name": "Remera DesiertoFresh",
             "price": 9.99
         },
         {
             "sku": "page5",
-            "name": "page4",
+            "name": "Remera Anderson",
             "price": 19.99
         },
         {
             "sku": "page3",
-            "name": "Deluxe Widget3",
+            "name": "Remera Rodman",
             "price": 29.99
         },
         {
             "sku": "page2",
-            "name": "Deluxe Widget1",
+            "name": "Remera  Widget1",
             "price": 29.99
         },
         {
             "sku": "page",
-            "name": "Deluxe Widget1",
+            "name": "Remera Deluxe ",
             "price": 29.99
         },
         {
-            "sku": "page2",
+            "sku": "page6",
             "name": "Deluxe Widget",
             "price": 29.99
         }

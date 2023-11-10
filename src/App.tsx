@@ -3,6 +3,7 @@ import Footer from "./components/Footer"
 import Cart from "./components/Cart"
 import ProductList from "./components/ProductList"
 import { useState } from "react"
+import Banner from "./components/Banner";
 
 function App() {
   const [viewCart, setViewCart] = useState<boolean>(false)

@@ -43,7 +43,7 @@ img {
 }
 
 .main {
-    padding: 7rem;
+    padding: 4rem;
     padding-top: 2rem;
     display: flex;
     gap: 1rem;
@@ -72,9 +72,17 @@ img {
     justify-content: space-between;
     margin-bottom: 0.5em;
 }
-
+.header__title {
+    margin-top: 18px;
+}
+.header__total {
+    margin-top: -10px;
+}
 .header__price-box {
     text-align: right;
+    margin-top: -29px;
+    margin-bottom: -10px;
+
 }
 
 .nav {
@@ -91,7 +99,7 @@ img {
 }
 
 .product {
-    width: 90%;
+    width: 100%;
     margin-bottom: 1em;
     border-radius: 2%;
     box-shadow: 3px 3px 3px  #7a7253;
@@ -114,15 +122,16 @@ img {
 .product__button {
     background-color: transparent;
     border: none;
-    padding: 0;
     cursor: pointer;
+    color: rgb(87, 82, 82);
+    margin: 10px;
+    font-size: 24px;
 }
 
 .product__button .icon {
-    color: rgb(87, 82, 82);
-    margin: 10px;
-    font-size: 34px;
-}
+    margin-top: 10px;
+    font-size: 45px;
+    }
 .product__img {
     max-width: 100%;
 }
@@ -162,6 +171,32 @@ img {
     display: flex;
     flex-flow: column;
     gap: 1em;
+}
+/* banner */
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.banner__main-image {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.banner__gallery {
+    display: flex;
+    justify-content: space-around;
+}
+
+.banner__small-image {
+    width: 20%; /* Ajusta el ancho para que sea el 80% del contenedor */
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+    border-radius: 5px;
+    margin: 0 5px;
 }
 
 @media screen and (min-width: 601px) {

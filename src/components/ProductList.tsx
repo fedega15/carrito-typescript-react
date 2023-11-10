@@ -3,6 +3,8 @@ import useProducts from "../hooks/useProducts"
 import { UseProductsContextType } from "../context/ProductsProvider"
 import { ReactElement } from "react"
 import Product from "./Product"
+import Banner from "./Banner"
+
 
 const ProductList = () => {
     const { dispatch, REDUCER_ACTIONS, cart } = useCart()
@@ -15,6 +17,7 @@ const ProductList = () => {
             const inCart: boolean = cart.some(item => item.sku === product.sku)
 
             return (
+                <>
                 <Product
                     key={product.sku}
                     product={product}
@@ -22,13 +25,14 @@ const ProductList = () => {
                     REDUCER_ACTIONS={REDUCER_ACTIONS}
                     inCart={inCart}
                 />
+                </>
                 )
         })
     }
-
     const content = (
         <>
-            <h1 className="producto">productos</h1>
+            <Banner/>
+        <h1 className="producto">productos</h1>
         <main className="main main--products">
             {pageContent}
         </main>

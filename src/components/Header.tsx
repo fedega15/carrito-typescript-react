@@ -13,13 +13,13 @@ const Header = ({ viewCart, setViewCart }: PropsType) => {
     const content = (
         <header className="header">
             <div className="header__title-bar">
-                <h1><SiAffinityphoto/> BenRaw</h1>
+                <h1 className="header__title"><SiAffinityphoto/> BenRaw</h1>
                 <div className="header__price-box">
-                    <p>Productos: {totalItems}</p>
-                    <p>Precio TOTAL: {totalPrice}</p>
+                <Nav viewCart={viewCart} setViewCart={setViewCart} />
+                   {/*  <p>Productos: {totalItems}</p> */}
+                    <p className="header__total">TOTAL: {totalPrice}</p> 
                 </div>
             </div>
-            <Nav viewCart={viewCart} setViewCart={setViewCart} />
         </header>
     )
 
