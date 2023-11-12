@@ -70,7 +70,7 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
                 title="Remove Item From Cart"
                 onClick={onRemoveFromCart}
             >
-                <IoMdClose />
+                X
             </button>
             
         </li>
