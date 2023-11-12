@@ -1,5 +1,6 @@
 import useCart from "../hooks/useCart";
 import { FaFacebook, FaTwitter, FaInstagram , FaLinkedin} from 'react-icons/fa';
+import ProductList from "./ProductList";
 
 type PropsType = {
     viewCart: boolean;
@@ -26,7 +27,7 @@ const Footer = ({ viewCart }: PropsType) => {
 
     const content = (
         <footer className="footer">
-            {viewCart ? cartContent : commonContent}
+            {viewCart ? <ProductList/> : commonContent}
         </footer>
     );
 
