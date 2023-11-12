@@ -11,7 +11,6 @@ type PropsType = {
 };
 
 const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
-    
     const img: string = new URL(`../images/${item.sku}.jpg`, import.meta.url).href;
 
     const [count, setCount] = useState(item.qty);
@@ -74,7 +73,7 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
                 <IoMdClose />
             </button>
             
-        </li>   
+        </li>
     );
 
     return content;
