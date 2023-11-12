@@ -74,7 +74,7 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
                 <IoMdClose />
             </button>
             
-        </li>
+        </li>   
     );
 
     return content;
