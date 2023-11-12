@@ -44,14 +44,21 @@ const reducer = (state: CartStateType, action: ReducerAction): CartStateType => 
         }
         case REDUCER_ACTION_TYPE.REMOVE: {
             if (!action.payload) {
-                throw new Error('action.payload missing in REMOVE action')
+                throw new Error('action.payload missing in REMOVE action');
             }
-
-            const { sku } = action.payload
-
-            const filteredCart: CartItemType[] = state.cart.filter(item => item.sku !== sku)
-
-            return { ...state, cart: [...filteredCart] }
+        
+            const { sku } = action.payload;
+        
+            const itemIndex = state.cart.findIndex(item => item.sku === sku);
+        
+            if (itemIndex === -1) {
+                // El elemento a eliminar no está presente, no se hace nada
+                return state;
+            }
+        
+            const updatedCart = [...state.cart.slice(0, itemIndex), ...state.cart.slice(itemIndex + 1)];
+        
+            return { ...state, cart: updatedCart };
         }
         case REDUCER_ACTION_TYPE.QUANTITY: {
             if (!action.payload) {
