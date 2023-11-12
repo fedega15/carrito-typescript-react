@@ -43,15 +43,27 @@ const reducer = (state: CartStateType, action: ReducerAction): CartStateType => 
             return { ...state, cart: [...filteredCart, { sku, name, price, qty }] }
         }
         case REDUCER_ACTION_TYPE.REMOVE: {
-            if (!action.payload) {
-                throw new Error('action.payload missing in REMOVE action')
+            if (!action.payload || !action.payload.sku) {
+                throw new Error('Invalid payload in REMOVE action');
             }
-
-            const { sku } = action.payload
-
-            const filteredCart: CartItemType[] = state.cart.filter(item => item.sku !== sku)
-
-            return { ...state, cart: [...filteredCart] }
+        
+            const { sku } = action.payload;
+        
+            // Find the index of the item with the provided SKU
+            const itemIndex = state.cart.findIndex(item => item.sku === sku);
+        
+            if (itemIndex === -1) {
+                // Item not found in the cart, handle this scenario (perhaps throw an error or just return the state as is)
+                return state;
+            }
+        
+            // Create a new cart without the item at the identified index
+            const updatedCart = [
+                ...state.cart.slice(0, itemIndex),
+                ...state.cart.slice(itemIndex + 1)
+            ];
+        
+            return { ...state, cart: updatedCart };
         }
         case REDUCER_ACTION_TYPE.QUANTITY: {
             if (!action.payload) {
