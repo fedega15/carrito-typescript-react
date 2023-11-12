@@ -46,7 +46,7 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
     };
 
     const content = (
-        <li className="cart__item">
+        <li  className="cart__item">
             <img src={img} alt={item.name} className="cart__img" />
             <div aria-label="Item Name">{item.name}</div>
             <div className="cart__item-subtotal" aria-label="Price Per Item" >
