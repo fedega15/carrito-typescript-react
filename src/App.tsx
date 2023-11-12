@@ -39,7 +39,7 @@ function App() {
   // Verificar el ancho de la pantalla y establecer el estado correspondiente
   useEffect(() => {
     function handleResize() {
-      setIsSmallScreen(window.innerWidth <= 600); // Cambia el ancho límite según tus necesidades
+      setIsSmallScreen(window.innerWidth <= 900); // Cambia el ancho límite según tus necesidades
     }
 
     window.addEventListener('resize', handleResize);
@@ -56,7 +56,7 @@ function App() {
     },
     content: {
       top: '55%',
-      left: '100%',
+      left: '80%',
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-100%, -50%)',
@@ -79,6 +79,8 @@ function App() {
       top:'17%'
     };
   }
+
+  
   return (
     <>
       <Header viewCart={viewCart} setViewCart={setViewCart} />
@@ -88,7 +90,7 @@ function App() {
         style={customStyles}
         contentLabel="Cart Modal"
       >
-        <button className="product__1" onClick={closeModal}>
+        <button className="product__2" onClick={closeModal}>
           <IoMdClose />
         </button>
         <Cart />

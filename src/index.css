@@ -155,8 +155,9 @@ img {
     margin-top: -77px;
 }
 .counter { 
-    margin-left: 10px;
+    margin-left: 7px;
     top: 10px;
+    font-size: 25px;
 }
 .counter__buton1 {
     background-color: transparent;
@@ -191,6 +192,7 @@ margin-bottom: -7px;
     grid-template-columns: 4fr 3fr 1fr 1fr;
     gap: 0.5rem;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .cart__img {
@@ -257,8 +259,8 @@ a {
     .cart__item-subtotal {
        padding: 0;
        position: relative;
-       top: 36px;
-       margin-left: 10px;
+       top: 46px;
+       margin-left: 11px;
     }
     .product {
         width: 30%;
