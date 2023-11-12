@@ -61,6 +61,7 @@ function App() {
 
   
   const pageContent = viewCart ? 
+  <>
   <Modal
     isOpen={viewCart}
     onRequestClose={closeModal}
@@ -71,7 +72,7 @@ function App() {
       <IoMdClose />
     </button>
     <Cart/>
-  </Modal>  : <ProductList />
+  </Modal></>  : <ProductList />
 
   const content = (
     <>
