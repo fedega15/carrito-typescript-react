@@ -1,5 +1,5 @@
 import { PiShoppingCartSimpleBold } from "react-icons/pi"
-import { IoMdArrowRoundBack } from "react-icons/io"
+import { IoMdClose } from "react-icons/io";
 
 type PropsType = {
     viewCart: boolean,
@@ -9,7 +9,7 @@ type PropsType = {
 const Nav = ({ viewCart, setViewCart }: PropsType) => {
 
     const button = viewCart
-        ? <button className="product__" onClick={() => setViewCart(false)}><IoMdArrowRoundBack className="icon" /></button>
+        ? <button className="product__" onClick={() => setViewCart(false)}><PiShoppingCartSimpleBold className="icon" /></button>
         : <button className="product__" onClick={() => setViewCart(true)}><PiShoppingCartSimpleBold className="icon" /></button>
 
     const content = (
