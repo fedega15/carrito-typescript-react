@@ -29,7 +29,7 @@ const Cart = () => {
             </ul>
             <div className="cart__totals">
                 <button className="cart__submit" disabled={!totalItems} onClick={onSubmitOrder}>
-                    Comprar{/*  {totalPrice} */}
+                    Comprar {totalPrice}
                 </button>
             </div>
         </>
