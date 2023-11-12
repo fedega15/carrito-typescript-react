@@ -2,6 +2,7 @@ import { ChangeEvent, ReactElement, memo, useState } from "react"
 import { CartItemType } from "../context/CartProvider"
 import { ReducerAction } from "../context/CartProvider"
 import { ReducerActionType } from "../context/CartProvider"
+import { IoMdClose ,IoMdArrowDropdown,IoMdArrowDropup, IoMdAdd} from "react-icons/io";
 
 type PropsType = {
     item: CartItemType;
@@ -48,14 +49,15 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
         <li className="cart__item">
             <img src={img} alt={item.name} className="cart__img" />
             <div aria-label="Item Name">{item.name}</div>
-            <div aria-label="Price Per Item">
+            <div className="cart__item-subtotal" aria-label="Price Per Item" >
                 {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(item.price)}
             </div>
 
             <div className="counter">
-                <button className="counter__button" onClick={incrementCount}>+</button>
-                <div aria-label="Item Quantity">{count}</div>
-                <button className="counter__button" onClick={decrementCount}>-</button>
+                <button className="counter__buton1" onClick={incrementCount}><IoMdArrowDropup /></button>
+                <div className="counter" aria-label="Item Quantity">{count}</div>
+                <button  className="counter__buton2" onClick={decrementCount}> <IoMdArrowDropdown /></button>
+            
             </div>
 
             <div className="cart__item-subtotal" aria-label="Line Item Subtotal">
@@ -63,13 +65,14 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
             </div>
 
             <button
-                className="cart__button"
+                className="product__2"
                 aria-label="Remove Item From Cart"
                 title="Remove Item From Cart"
                 onClick={onRemoveFromCart}
             >
-                ❌
+                <IoMdClose />
             </button>
+            
         </li>
     );
 

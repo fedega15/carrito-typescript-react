@@ -12,26 +12,27 @@ const Cart = () => {
     }
 
     const pageContent = confirm
-        ? <h2>Thank you for your order.</h2>
+        ? <h2>¡GRACIAS POR COMPRAR! <p>Un asesor te contactara a continuacion!</p></h2>
+        
         : <>
-            <h2 className="offscreen">Cart</h2>
             <ul className="cart">
                 {cart.map(item => {
-                    return (
+                    return (<>
                         <CartLineItem
                             key={item.sku}
                             item={item}
                             dispatch={dispatch}
                             REDUCER_ACTIONS={REDUCER_ACTIONS}
                         />
+                        <hr/> 
+                        </>
                     )
                 })}
             </ul>
             <div className="cart__totals">
-                <p>Total Items: {totalItems}</p>
-                <p>Total Price: {totalPrice}</p>
+               
                 <button className="cart__submit" disabled={!totalItems} onClick={onSubmitOrder}>
-                    Place Order
+                    Comprar {totalPrice}
                 </button>
             </div>
         </>
@@ -39,6 +40,7 @@ const Cart = () => {
     const content = (
         <main className="main main--cart">
             {pageContent}
+            
         </main>
     )
 
