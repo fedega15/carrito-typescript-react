@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Cart from "./components/Cart"
+import ProductList from "./components/ProductList"
+import { useEffect, useState } from "react"
 import Modal from "react-modal";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Cart from "./components/Cart";
-import ProductList from "./components/ProductList";
-import { IoMdClose } from "react-icons/io";
-
-
+import { IoMdClose } from "react-icons/io"
 
 function App() {
   const [viewCart, setViewCart] = useState(false);
@@ -62,24 +60,28 @@ function App() {
   }
 
   
-  return (
+  const pageContent = viewCart ? 
+  <Modal
+    isOpen={viewCart}
+    onRequestClose={closeModal}
+    style={customStyles}
+    contentLabel="Cart Modal"
+  >
+    <button className="product__2" onClick={closeModal}>
+      <IoMdClose />
+    </button>
+    <Cart/>
+  </Modal>  : <ProductList />
+
+  const content = (
     <>
       <Header viewCart={viewCart} setViewCart={setViewCart} />
-      <Modal
-        isOpen={viewCart}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Cart Modal"
-      >
-        <button className="product__2" onClick={closeModal}>
-          <IoMdClose />
-        </button>
-        <Cart />
-      </Modal>
-      <ProductList />
+      {pageContent}
       <Footer viewCart={viewCart} />
     </>
-  );
+  )
+
+  return content
 }
 
-export default App;
+export default App
