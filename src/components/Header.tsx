@@ -11,7 +11,7 @@ const Header = ({ viewCart, setViewCart }: PropsType) => {
     const content = (
         <header className="header">
             <div className="header__title-bar">
-                <h1 className="header__title"><SiAffinityphoto/> BenRaw</h1>
+                <a href="#banner" className="header__title"><SiAffinityphoto/> BenRaw</a>
                 <div className="header__price-box">
                 <Nav viewCart={viewCart} setViewCart={setViewCart} />
                    {/*  <p>Productos: {totalItems}</p> */}

@@ -7,7 +7,7 @@ import banner4 from "../images/banner4.jpg";
 
 const Banner: React.FC = () => {
   return (
-    <div className="banner">
+    <div className="banner" id="banner">
       <br/>
       <img src={banner}alt="Imagen Principal" className="banner__main-image" />
       <div className="banner__gallery">
