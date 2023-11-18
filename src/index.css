@@ -61,7 +61,7 @@ img {
 }
 
 .header {
-    width: 50%;
+    width: 40%;
     background-color: rgba(245, 208, 94, 0.7); 
     position: sticky;
     left: 0px;
@@ -72,13 +72,13 @@ img {
 
 .header__title-bar {
     display: flex;
-    justify-content: space-between;
     margin-bottom: 0.5em;
     color: rgb(34, 32, 32);
 }
 .header__title {
     margin-top: 18px;
-    font-size: 18px;
+    font-size: 20px;
+    padding: 3px;
 }
 .header__total {
     margin-top: -10px;
@@ -193,9 +193,10 @@ img {
     border: none;
     cursor: pointer;
     color: rgb(34, 32, 32);
-    margin-top: 39px;
+    margin-top: 45px;
     font-size: 30px;
-    margin-right: 10px;
+    margin-right:-6px;
+    padding: 0;
 }
 .product__1 {
     background-color: transparent;
