@@ -22,9 +22,21 @@ export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
     const [products, setProducts] = useState<ProductType[]>(initialProducts);
 
     useEffect(() => {
+        const fetchProducts = async (): Promise<ProductType[]> => {
+           const data = await fetch('http://localhost:3500/products').then(res => {
+               return res.json()
+           }).catch(err => {
+               if (err instanceof Error) console.log(err.message)
+           })
+           return data
+       }
+
+       fetchProducts().then(products => setProducts(products))
+}, []) 
+ /*    useEffect(() => {
         localStorage.setItem('products', JSON.stringify(products));
     }, [products]);
-
+ */
     return (
         <ProductsContext.Provider value={{ products }}>
             {children}
