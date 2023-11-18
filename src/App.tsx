@@ -1,10 +1,13 @@
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-import Cart from "./components/Cart"
-import ProductList from "./components/ProductList"
-import { useEffect, useState } from "react"
-import Modal from "react-modal";
-import { IoMdClose } from "react-icons/io"
+// App.tsx
+
+import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Cart from "./components/Cart";
+import ProductList from "./components/ProductList";
+import FeatureSection from "./components/FeatureSection";
+import { FaCreditCard, FaLock, FaShippingFast } from "react-icons/fa";
+import CustomModal from "./components/CustomModal";
 
 function App() {
   const [viewCart, setViewCart] = useState(false);
@@ -21,68 +24,34 @@ function App() {
       setIsSmallScreen(window.innerWidth <= 900); // Cambia el ancho límite según tus necesidades
     }
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize(); // Verificar el ancho inicial al cargar la página
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const customStyles = {
-    overlay: {
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    },
-    content: {
-      top: '55%',
-      left: '80%',
-      right: 'auto',
-      bottom: 'auto',
-      transform: 'translate(-100%, -50%)',
-      width: "60%",
-      maxHeight: "450px",
-      border: "1px solid #ccc",
-      borderRadius: "8px",
-      padding: "20px",
-      overflow: "auto",
-    },
-  };
-
-  // Si la pantalla es pequeña, ajusta el estilo del modal
-  if (isSmallScreen) {
-    customStyles.content = {
-      ...customStyles.content,
-      width: '100%',
-      left: '0',
-      transform: 'none',
-      top:'17%'
-    };
-  }
-
-  
-  const pageContent = viewCart ? 
-  <>
-  <Modal
-    isOpen={viewCart}
-    onRequestClose={closeModal}
-    style={customStyles}
-    contentLabel="Cart Modal"
-  >
-    <button className="product__2" onClick={closeModal}>
-      <IoMdClose />
-    </button>
-    <Cart/>
-  </Modal></>  : <ProductList />
 
   const content = (
     <>
       <Header viewCart={viewCart} setViewCart={setViewCart} />
-      {pageContent}
+      {viewCart ? (
+        <CustomModal isOpen={viewCart} onRequestClose={closeModal} isSmallScreen={isSmallScreen}>
+          <Cart />
+        </CustomModal>
+      ) : (
+        <ProductList />
+      )}
+      <div className="feature-section2">
+      <FeatureSection icon={<FaShippingFast />} title="Envío a todo el país" title2="Despachamos los pedidos en el dia" />
+      <FeatureSection icon={<FaCreditCard />} title="3 Cuotas sin interés" title2="Con todas las tarjetas en tres cuotas " />
+      <FeatureSection icon={<FaLock />} title="Compra asegurada" title2="Contamos con seguro de envios " />
+      </div>
       <Footer viewCart={viewCart} />
     </>
-  )
+  );
 
-  return content
+  return content;
 }
 
-export default App
+export default App;

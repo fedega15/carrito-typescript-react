@@ -6,7 +6,7 @@ type PropsType = {
     setViewCart: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-const Header = ({ viewCart, setViewCart }: PropsType) => {
+const   Header = ({ viewCart, setViewCart }: PropsType) => {
 
     const content = (
         <header className="header">
@@ -14,8 +14,6 @@ const Header = ({ viewCart, setViewCart }: PropsType) => {
                 <a href="#banner" className="header__title"><SiAffinityphoto/> BenRaw</a>
                 <div className="header__price-box">
                 <Nav viewCart={viewCart} setViewCart={setViewCart} />
-                   {/*  <p>Productos: {totalItems}</p> */}
-                    {/* <p className="header__total">TOTAL: {totalPrice}</p>  */}
                 </div>
             </div>
         </header>
