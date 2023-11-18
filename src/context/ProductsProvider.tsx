@@ -22,7 +22,7 @@ export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
     const [products, setProducts] = useState<ProductType[]>(initialProducts);
     //descomentando este useeffect, puedes correr el json server y usar el fetch
     //npx json-server -w data/products.json -p 3500 
-     useEffect(() => {
+    /*  useEffect(() => {
         const fetchProducts = async (): Promise<ProductType[]> => {
            const data = await fetch('http://localhost:3500/products').then(res => {
                return res.json()
@@ -33,11 +33,11 @@ export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
        }
 
        fetchProducts().then(products => setProducts(products))
-}, []) 
+}, [])  */
 // o bien usar local storage sin comentar.
-  /*    useEffect(() => {
+     useEffect(() => {
         localStorage.setItem('products', JSON.stringify(products));
-    }, [products]); */
+    }, [products]); 
  
     return (
         <ProductsContext.Provider value={{ products }}>
