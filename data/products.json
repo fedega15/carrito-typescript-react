@@ -3,32 +3,32 @@
         {
             "sku": "banner1",
             "name": "Remera DesiertoFresh",
-            "price": 9.99
+            "price": 5000.99
         },
         {
             "sku": "page5",
-            "name": "Remera Anderson",
-            "price": 19.99
+            "name": "Remera Good Conection",
+            "price": 4500.99
         },
         {
             "sku": "page3",
             "name": "Remera Rodman",
-            "price": 29.99
+            "price": 6900.99
         },
         {
             "sku": "page2",
-            "name": "Remera  Widget1",
-            "price": 29.99
+            "name": "Remera  El Durazno",
+            "price": 5200.99
         },
         {
             "sku": "page",
-            "name": "Remera Deluxe ",
-            "price": 29.99
+            "name": "Remera Palmers  ",
+            "price": 4300.99
         },
         {
             "sku": "page6",
-            "name": "Deluxe Widget",
-            "price": 29.99
+            "name": "Remera aloha",
+            "price": 2999.99
         }
     ]
 }
